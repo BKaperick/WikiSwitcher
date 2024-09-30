@@ -3,5 +3,14 @@
   "name": "Multilingual Wikipedia Switcher",
   "version": "1.0.0",
   "description": "Chooses the Wikipedia page which has the best article among the users' selected languages",
-  "author": "bryan.kaperick@gmail.com"
+  "author": "bryan.kaperick@gmail.com",
+  "permissions": [
+      "webRequest"
+  ],
+  "host_permissions": [
+    "*://*.google.com/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  }
 }
