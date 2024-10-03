@@ -14,7 +14,8 @@
   "host_permissions": [
     "*://*.google.com/*"
   ],
-  "action": {},
+  "action": {
+  },
   "background": {
     "service_worker": "service-worker.js"
   }}
