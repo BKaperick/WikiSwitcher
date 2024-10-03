@@ -14,7 +14,10 @@
   "host_permissions": [
     "*://*.google.com/*"
   ],
-  "action": {},
+  "action": {
+    "default_title": "Click to view a popup",
+    "default_popup": "popup.html"
+  },
   "background": {
     "service_worker": "service-worker.js"
   }}
