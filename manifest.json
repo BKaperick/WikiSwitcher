@@ -11,9 +11,7 @@
     "scripting",
     "activeTab"
   ],
-  "host_permissions": [
-    "*://*.google.com/*"
-  ],
+  "host_permissions": ["*://*/*", "file://*/*"],
   "action": {
     "default_title": "Click to view a popup",
     "default_popup": "popup.html"
