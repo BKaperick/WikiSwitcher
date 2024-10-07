@@ -76,7 +76,7 @@ output = """<!DOCTYPE html>
   <script src="popup.js"></script>
 </head>
 <body>
-<h1>Hello</h1>
+<h1>Multilingual Wikipedia Switcher</h1>
 <h2>Check all languages that you speak</h2>
 <br>
 <h4>Most popular Wikipedia languages</h4>
