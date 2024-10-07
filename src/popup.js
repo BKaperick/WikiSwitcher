@@ -3,6 +3,8 @@ function myAlert(value){
  //alert('Button Clicked: ' + value);
 }
 
+var languages_selected = [];
+
 function doSubmitAction() {
     console.log("the doc loaded")
     // document.getElementById('en').addEventListener('click', myAlert);
@@ -11,7 +13,8 @@ function doSubmitAction() {
     form.addEventListener('submit',function(e){
         e.preventDefault();
         const data = new FormData(e.target);
-        alert("added to the form: " + [...data.entries()]);
+        data.values().forEach((v) => languages_selected.push(v));
+        alert("added to the form: " + [...languages_selected]);
     }
     );
 };

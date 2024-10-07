@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <head>
+    <link rel="stylesheet" href="popup.css">
   <script src="popup.js"></script>
 </head>
 <body>
 <h1>Hello</h1>
 <h2>Check all languages that you speak</h2>
-
+<br>
+<h4>Most popular Wikipedia languages</h4>
 <form id="language_selector">
+<input type="checkbox" id="en" name="english" value="en"><label for="en">English</label><br>
+<input type="checkbox" id="fr" name="french" value="fr"><label for="fr">French</label><br>
+<input type="checkbox" id="de" name="german" value="de"><label for="de">German</label><br>
+<input type="checkbox" id="es" name="spanish" value="es"><label for="es">Spanish</label><br>
+<input type="checkbox" id="ja" name="japanese" value="ja"><label for="ja">Japanese</label><br>
+<input type="checkbox" id="ru" name="russian" value="ru"><label for="ru">Russian</label><br>
+<input type="checkbox" id="pt" name="portuguese" value="pt"><label for="pt">Portuguese</label><br>
+<input type="checkbox" id="zh" name="chinese" value="zh"><label for="zh">Chinese</label><br>
+<input type="checkbox" id="it" name="italian" value="it"><label for="it">Italian</label><br>
+<input type="checkbox" id="fa" name="persian" value="fa"><label for="fa">Persian</label><br>
+<br>
+
+<h4>All other Wikipedia languages</h4>
+<div style="max-height:140px;overflow-y:scroll;">
 <input type="checkbox" id="ab" name="abkhaz" value="ab"><label for="ab">Abkhaz</label><br>
 <input type="checkbox" id="ace" name="acehnese" value="ace"><label for="ace">Acehnese</label><br>
 <input type="checkbox" id="ady" name="adyghe" value="ady"><label for="ady">Adyghe</label><br>
@@ -59,7 +75,6 @@
 <input type="checkbox" id="chr" name="cherokee" value="chr"><label for="chr">Cherokee</label><br>
 <input type="checkbox" id="ny" name="chewa" value="ny"><label for="ny">Chewa</label><br>
 <input type="checkbox" id="chy" name="cheyenne" value="chy"><label for="chy">Cheyenne</label><br>
-<input type="checkbox" id="zh" name="chinese" value="zh"><label for="zh">Chinese</label><br>
 <input type="checkbox" id="cv" name="chuvash" value="cv"><label for="cv">Chuvash</label><br>
 <input type="checkbox" id="zh-classical" name="classical chinese" value="zh-classical"><label for="zh-classical">Classical Chinese</label><br>
 <input type="checkbox" id="kw" name="cornish" value="kw"><label for="kw">Cornish</label><br>
@@ -80,7 +95,6 @@
 <input type="checkbox" id="cdo" name="eastern min" value="cdo"><label for="cdo">Eastern Min</label><br>
 <input type="checkbox" id="arz" name="egyptian arabic" value="arz"><label for="arz">Egyptian Arabic</label><br>
 <input type="checkbox" id="eml" name="emilian–romagnol" value="eml"><label for="eml">Emilian–Romagnol</label><br>
-<input type="checkbox" id="en" name="english" value="en"><label for="en">English</label><br>
 <input type="checkbox" id="myv" name="erzya" value="myv"><label for="myv">Erzya</label><br>
 <input type="checkbox" id="eo" name="esperanto" value="eo"><label for="eo">Esperanto</label><br>
 <input type="checkbox" id="et" name="estonian" value="et"><label for="et">Estonian</label><br>
@@ -94,7 +108,6 @@
 <input type="checkbox" id="fi" name="finnish" value="fi"><label for="fi">Finnish</label><br>
 <input type="checkbox" id="fon" name="fon" value="fon"><label for="fon">Fon</label><br>
 <input type="checkbox" id="frp" name="franco-provençal" value="frp"><label for="frp">Franco-Provençal</label><br>
-<input type="checkbox" id="fr" name="french" value="fr"><label for="fr">French</label><br>
 <input type="checkbox" id="gcr" name="french guianese creole" value="gcr"><label for="gcr">French Guianese Creole</label><br>
 <input type="checkbox" id="fur" name="friulian" value="fur"><label for="fur">Friulian</label><br>
 <input type="checkbox" id="ff" name="fula" value="ff"><label for="ff">Fula</label><br>
@@ -102,7 +115,6 @@
 <input type="checkbox" id="gl" name="galician" value="gl"><label for="gl">Galician</label><br>
 <input type="checkbox" id="gan" name="gan chinese" value="gan"><label for="gan">Gan Chinese</label><br>
 <input type="checkbox" id="ka" name="georgian" value="ka"><label for="ka">Georgian</label><br>
-<input type="checkbox" id="de" name="german" value="de"><label for="de">German</label><br>
 <input type="checkbox" id="gpe" name="ghanaian pidgin english" value="gpe"><label for="gpe">Ghanaian Pidgin English</label><br>
 <input type="checkbox" id="glk" name="gilaki" value="glk"><label for="glk">Gilaki</label><br>
 <input type="checkbox" id="gor" name="gorontalo" value="gor"><label for="gor">Gorontalo</label><br>
@@ -132,10 +144,8 @@
 <input type="checkbox" id="ie" name="interlingue" value="ie"><label for="ie">Interlingue</label><br>
 <input type="checkbox" id="iu" name="inuktitut" value="iu"><label for="iu">Inuktitut</label><br>
 <input type="checkbox" id="ga" name="irish" value="ga"><label for="ga">Irish</label><br>
-<input type="checkbox" id="it" name="italian" value="it"><label for="it">Italian</label><br>
 <input type="checkbox" id="ik" name="iñupiaq" value="ik"><label for="ik">Iñupiaq</label><br>
 <input type="checkbox" id="jam" name="jamaican patois" value="jam"><label for="jam">Jamaican Patois</label><br>
-<input type="checkbox" id="ja" name="japanese" value="ja"><label for="ja">Japanese</label><br>
 <input type="checkbox" id="jv" name="javanese" value="jv"><label for="jv">Javanese</label><br>
 <input type="checkbox" id="lad" name="judaeo-spanish" value="lad"><label for="lad">Judaeo-Spanish</label><br>
 <input type="checkbox" id="kbd" name="kabardian" value="kbd"><label for="kbd">Kabardian</label><br>
@@ -234,19 +244,16 @@
 <input type="checkbox" id="pap" name="papiamento" value="pap"><label for="pap">Papiamento</label><br>
 <input type="checkbox" id="ps" name="pashto" value="ps"><label for="ps">Pashto</label><br>
 <input type="checkbox" id="pdc" name="pennsylvania dutch" value="pdc"><label for="pdc">Pennsylvania Dutch</label><br>
-<input type="checkbox" id="fa" name="persian" value="fa"><label for="fa">Persian</label><br>
 <input type="checkbox" id="pcd" name="picard" value="pcd"><label for="pcd">Picard</label><br>
 <input type="checkbox" id="pms" name="piedmontese" value="pms"><label for="pms">Piedmontese</label><br>
 <input type="checkbox" id="pl" name="polish" value="pl"><label for="pl">Polish</label><br>
 <input type="checkbox" id="pnt" name="pontic greek" value="pnt"><label for="pnt">Pontic Greek</label><br>
-<input type="checkbox" id="pt" name="portuguese" value="pt"><label for="pt">Portuguese</label><br>
 <input type="checkbox" id="pa" name="punjabi" value="pa"><label for="pa">Punjabi</label><br>
 <input type="checkbox" id="qu" name="quechua" value="qu"><label for="qu">Quechua</label><br>
 <input type="checkbox" id="ksh" name="ripuarian" value="ksh"><label for="ksh">Ripuarian</label><br>
 <input type="checkbox" id="rmy" name="romani" value="rmy"><label for="rmy">Romani</label><br>
 <input type="checkbox" id="ro" name="romanian" value="ro"><label for="ro">Romanian</label><br>
 <input type="checkbox" id="rm" name="romansh" value="rm"><label for="rm">Romansh</label><br>
-<input type="checkbox" id="ru" name="russian" value="ru"><label for="ru">Russian</label><br>
 <input type="checkbox" id="rue" name="rusyn" value="rue"><label for="rue">Rusyn</label><br>
 <input type="checkbox" id="szy" name="sakizaya" value="szy"><label for="szy">Sakizaya</label><br>
 <input type="checkbox" id="sm" name="samoan" value="sm"><label for="sm">Samoan</label><br>
@@ -277,7 +284,6 @@
 <input type="checkbox" id="azb" name="south azerbaijani" value="azb"><label for="azb">South Azerbaijani</label><br>
 <input type="checkbox" id="alt" name="southern altai" value="alt"><label for="alt">Southern Altai</label><br>
 <input type="checkbox" id="zh-min-nan" name="southern min" value="zh-min-nan"><label for="zh-min-nan">Southern Min</label><br>
-<input type="checkbox" id="es" name="spanish" value="es"><label for="es">Spanish</label><br>
 <input type="checkbox" id="srn" name="sranan tongo" value="srn"><label for="srn">Sranan Tongo</label><br>
 <input type="checkbox" id="zgh" name="standard moroccan amazigh" value="zgh"><label for="zgh">Standard Moroccan Amazigh</label><br>
 <input type="checkbox" id="su" name="sundanese" value="su"><label for="su">Sundanese</label><br>
@@ -340,6 +346,7 @@
 <input type="checkbox" id="za" name="zhuang" value="za"><label for="za">Zhuang</label><br>
 <input type="checkbox" id="zu" name="zulu" value="zu"><label for="zu">Zulu</label><br>
 
+</div>
   <input type="submit" value="Submit">
 </form>
 </body>
