@@ -26,9 +26,16 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
 });
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
-  if (changeInfo.status == 'complete' && tab.active && tab.url.includes("wikipedia")) {
-      chrome.tabs.create({
-        url: chrome.runtime.getURL('popup.html')
-      });
-  }
+    if (changeInfo.status == 'complete' && tab.active && tab.url.includes("wikipedia.org")) {
+        const re = /https:\/\/(\w\w)(\.wikipedia\.org\/wiki\/.*)/;
+        var info = tab.url.match(re);
+        console.log(info);
+        var language = info[1];
+        var article = info[2];
+        var frenchRedirect = "fr" + article;
+        chrome.tabs.create({
+            url: frenchRedirect
+            // url: chrome.runtime.getURL('popup.html')
+        });
+    }
 });
