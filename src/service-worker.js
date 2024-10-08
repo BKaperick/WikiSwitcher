@@ -1,3 +1,14 @@
+var languages = [];
+
+// Watch for changes to the user's options & apply them
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === 'sync' && changes.options?.newValue) {
+    console.log(JSON.stringify(changes.options.newValue));
+    languages = changes.options.newValue.languages;
+    console.log("Updated languages: " + languages);
+  }
+});
+
 function DOMtoString(selector) {
     console.log("DOMtoString");
     if (selector) {
@@ -29,17 +40,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete' && tab.active && tab.url.includes("wikipedia.org")) {
         const re = /https:\/\/(\w\w)(\.wikipedia\.org\/wiki\/.*)/;
         var info = tab.url.match(re);
-        // alert(info);
         var language = info[1];
         var article = info[2];
-        chrome.storage.local.get('languages', function(obj) {
-            //Notify that we get the value.
-            // alert('Value is ' + obj.value);
-            var redirect = obj.value[1] + article;
-            chrome.tabs.create({
-                url: redirect
-                // url: chrome.runtime.getURL('popup.html')
-            });
+        
+        var other = languages.filter((x) => x !== language)[0];
+        var redirect = "https://" + other + article;
+        chrome.tabs.create({
+            url: redirect
         });
     }
 });

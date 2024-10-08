@@ -15,9 +15,9 @@
   "host_permissions": ["*://*/*", "file://*/*"],
   "action": {
     "default_title": "Click to view a popup",
-    "default_popup": "cached_popup.html"
+    "default_popup": "popup.html"
   },
   "background": {
-    "service_worker": "cached_service-worker.js"
+    "service_worker": "service-worker.js"
   }
 }

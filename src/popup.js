@@ -1,42 +1,35 @@
-function myAlert(value){
- // console.log("button clicked")
- //alert('Button Clicked: ' + value);
+// In-page cache of the user's options
+const options = {};
+const optionsForm = document.getElementById("language_selector");
+const submit = document.getElementById("submit");
+
+function updateOptionsFromForm(target) {
+  var langs = [];
+  for (var ind in target) {
+      const elem = target.elements[ind]
+      if (event.target.hasOwnProperty(ind) && elem.type === "checkbox") {
+        const lang = elem.id;
+        if (elem.checked){
+            langs.push(lang);
+        }
+      }
+  }
+  options["languages"] = langs;
+  chrome.storage.sync.set({ options });
 }
 
-// var languages_selected = [];
-var languages_selected = chrome.storage.local.get('languages', function(obj) {
-    if (obj === undefined) {
-        return [];
-    }
-    // alert("Found: " + obj.value);
-    return obj.value;
+
+// TODO doesn't work
+// optionsForm.addEventListener("change", (event) => updateOptionsFromForm(event.target));
+
+optionsForm.addEventListener("submit", (event) => updateOptionsFromForm(event.target));
+
+// Initialize the form with the user's option settings
+const data = await chrome.storage.sync.get("options");
+Object.assign(options, data.options);
+
+var boxes = [...optionsForm.querySelectorAll("input[type=checkbox]")];
+boxes.forEach(cb =>
+{
+    cb.checked = Boolean(options.languages !== undefined && options.languages.includes(cb.id));
 });
-//alert(languages_selected);
-
-function changeName(username) {
-  document.getElementById("username").innerHTML = username;
-}
-
-function doSubmitAction() {
-    console.log("the doc loaded")
-    // document.getElementById('en').addEventListener('click', myAlert);
-    var form = document.getElementById("language_selector")
-    console.log(form)
-    form.addEventListener('submit',function(e){
-        e.preventDefault();
-        const data = new FormData(e.target);
-        data.values().forEach((v) => languages_selected.push(v));
-        chrome.storage.local.set({'languages': languages_selected}, function() {
-            // Notify that we saved.
-        alert("added to the form: " + [...languages_selected]);
-        });
-    });
-};
-
-if (document.readyState === "loading") {
-  // Loading hasn't finished yet
-  document.addEventListener('DOMContentLoaded', doSubmitAction);
-} else {
-  // `DOMContentLoaded` has already fired
-  doSubmitAction();
-}
