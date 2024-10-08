@@ -1,10 +1,10 @@
-function updateLanguages(langs) { alert("Changing language settings: " + langs); }
+var languages = [];
 
 // Watch for changes to the user's options & apply them
 chrome.storage.onChanged.addListener((changes, area) => {
-  if (area === 'local' && changes.options?.newValue) {
-    const languages = Array(changes.options.newValue.languages);
-    console.log('enabled languages:', languages);
-    updateLanguages(languages);
+  if (area === 'sync' && changes.options?.newValue) {
+    console.log(JSON.stringify(changes.options.newValue));
+    languages = changes.options.newValue.languages;
+    console.log("Updated languages: " + languages);
   }
 });
