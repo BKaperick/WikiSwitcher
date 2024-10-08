@@ -35,27 +35,3 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
         //       });
         // }
 });
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-        if (changeInfo.status == 'complete' && tab.active && tab.url.includes("wikipedia.org")) {
-        var languageDom = document.getElementById("p-lang-label");
-        var links = [...languageDom.querySelectAll("a")];
-        var candidates = [];
-        links.forEach(l =>
-        {
-            if (languages.includes(l.lang)) {
-                candidates.push(l.lang);
-            }
-        });
-        const re = /https:\/\/(\w\w)(\.wikipedia\.org\/wiki\/.*)/;
-        var info = tab.url.match(re);
-        var language = info[1];
-        var article = info[2];
-        
-        // var other = languages.filter((x) => x !== language)[0];
-        var other = candidates[0];
-        var redirect = "https://" + other + article;
-        chrome.tabs.create({
-            url: redirect
-        });
-    }
-});

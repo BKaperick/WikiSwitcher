@@ -19,5 +19,11 @@
   },
   "background": {
     "service_worker": "service-worker.js"
-  }
+  },
+  "content_scripts": [
+    {
+        "matches": ["*://*.wikipedia.org/*"],
+        "js": ["content.js"]
+    }
+  ]
 }
