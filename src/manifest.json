@@ -9,12 +9,13 @@
     "declarativeNetRequest",
     "declarativeNetRequestWithHostAccess",
     "scripting",
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "host_permissions": ["*://*/*", "file://*/*"],
   "action": {
     "default_title": "Click to view a popup",
-    "default_popup": "popup.html"
+    "default_popup": "cached_popup.html"
   },
   "background": {
     "service_worker": "service-worker.js"

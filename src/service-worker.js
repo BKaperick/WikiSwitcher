@@ -29,13 +29,17 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete' && tab.active && tab.url.includes("wikipedia.org")) {
         const re = /https:\/\/(\w\w)(\.wikipedia\.org\/wiki\/.*)/;
         var info = tab.url.match(re);
-        console.log(info);
+        // alert(info);
         var language = info[1];
         var article = info[2];
-        var frenchRedirect = "fr" + article;
-        chrome.tabs.create({
-            url: frenchRedirect
-            // url: chrome.runtime.getURL('popup.html')
+        chrome.storage.local.get('languages', function(obj) {
+            //Notify that we get the value.
+            // alert('Value is ' + obj.value);
+            var redirect = obj.value[1] + article;
+            chrome.tabs.create({
+                url: redirect
+                // url: chrome.runtime.getURL('popup.html')
+            });
         });
     }
 });

@@ -3,7 +3,19 @@ function myAlert(value){
  //alert('Button Clicked: ' + value);
 }
 
-var languages_selected = [];
+// var languages_selected = [];
+var languages_selected = chrome.storage.local.get('languages', function(obj) {
+    if (obj === undefined) {
+        return [];
+    }
+    // alert("Found: " + obj.value);
+    return obj.value;
+});
+//alert(languages_selected);
+
+function changeName(username) {
+  document.getElementById("username").innerHTML = username;
+}
 
 function doSubmitAction() {
     console.log("the doc loaded")
@@ -14,9 +26,11 @@ function doSubmitAction() {
         e.preventDefault();
         const data = new FormData(e.target);
         data.values().forEach((v) => languages_selected.push(v));
+        chrome.storage.local.set({'languages': languages_selected}, function() {
+            // Notify that we saved.
         alert("added to the form: " + [...languages_selected]);
-    }
-    );
+        });
+    });
 };
 
 if (document.readyState === "loading") {
