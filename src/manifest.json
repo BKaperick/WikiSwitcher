@@ -18,6 +18,6 @@
     "default_popup": "cached_popup.html"
   },
   "background": {
-    "service_worker": "service-worker.js"
+    "service_worker": "cached_service-worker.js"
   }
 }
