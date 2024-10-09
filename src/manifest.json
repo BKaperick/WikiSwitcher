@@ -23,7 +23,7 @@
   "content_scripts": [
     {
         "matches": ["*://*.wikipedia.org/*"],
-        "js": ["thirdParty/jquery-3.7.1.min.js", "content.js"]
+        "js": ["content.js"]
     }
   ]
 }
