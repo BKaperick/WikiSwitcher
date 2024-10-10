@@ -22,7 +22,7 @@
   },
   "content_scripts": [
     {
-        "matches": ["*://*.wikipedia.org/*"],
+        "matches": ["*://*.wikipedia.org/wiki/*"],
         "js": ["content.js"]
     }
   ]
