@@ -58,7 +58,7 @@ function getLanguageRedirect(languages) {
     }
     for (const lang in lang_to_url) { 
         var lang_title = lang_to_title[lang];
-        var wiki_api_raw_text = "https://" + lang + ".wikipedia.org/w/api.php?origin=*&page=" + lang_title + "&prop=wikitext&action=parse"
+        var wiki_api_raw_text = "https://" + lang + ".wikipedia.org/w/api.php?origin=*&page=" + lang_title + "&prop=wikitext&action=parse&redirects"
         console.log(lang + " raw: " + wiki_api_raw_text);
         httpGetAsync(wiki_api_raw_text, (response,_) => {
             lang_to_content_length[lang] = response.length
