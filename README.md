@@ -7,7 +7,7 @@ This chrome extension intends to facilitate the user-experience of [Wikipedia](h
 The v 0.0.1 of this app is still pending approval from the Google Chrome store.  The link will be added here when it is published.
 
 Alternatively, you can install locally by:
-1. Clone this repository
-2. Navigate to `chrome://extensions/`
+1. Clone this repository (or download and unzip `src.crx`)
+2. Navigate to `chrome://extensions/` in Google Chrome
 3. In top-left corner, select "Load unpacked"
 4. Select `./src` as the root directory
