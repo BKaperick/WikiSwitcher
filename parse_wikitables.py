@@ -1,4 +1,5 @@
 import re
+import sys
 
 re_urls = [
 r'<span lang=\"([a-z]{2,3})\">',
@@ -22,7 +23,7 @@ r'>([\d,]+)<'
 POPULAR_LANGUAGE_THRESHOLD = 10
 
 langs = []
-with open("raw_wikitables.html", "r") as fr:
+with open(sys.argv[1], "r") as fr:
     data = fr.read()
     rows = data.split("</tr><tr ")
     for row in rows:
@@ -70,31 +71,19 @@ def popular_adj_sort(langs, top_pop):
 
 langs = popular_adj_sort(langs, POPULAR_LANGUAGE_THRESHOLD)
 
-output = """<!DOCTYPE html>
-<head>
-    <link rel="stylesheet" href="popup.css">
-  <script src="popup.js"></script>
-</head>
-<body>
-<h1>Multilingual Wikipedia Switcher</h1>
-<h2>Check all languages that you speak</h2>
-<br>
-<h4>Most popular Wikipedia languages</h4>
-<form id="language_selector">
-"""
+with open("popup_header.html","r") as f:
+    output = f.read()
+
 for i,lang in enumerate(langs):
     output += """<input type="checkbox" id="{0}" name="{2}" value="{0}"><label for="{0}">{1}</label><br>\n""".format(lang['url'], lang['name'], lang['name'].lower())
     if i == POPULAR_LANGUAGE_THRESHOLD - 1:
         output += """<br>
 
 <h4>All other Wikipedia languages</h4>
-<div style="max-height:140px;overflow-y:scroll;">
+<div class="otherlanguages" >
 """
 
-output += """
-</div>
-  <input type="submit" value="Submit">
-</form>
-</body>
-"""
+with open("popup_footer.html","r") as f:
+    output += f.read()
+
 print(output)

@@ -22,7 +22,10 @@ function updateOptionsFromForm(target) {
 // TODO doesn't work
 // optionsForm.addEventListener("change", (event) => updateOptionsFromForm(event.target));
 
-optionsForm.addEventListener("submit", (event) => updateOptionsFromForm(event.target));
+optionsForm.addEventListener("submit", (event) => {
+    updateOptionsFromForm(event.target);
+    window.close();
+});
 
 // Initialize the form with the user's option settings
 const data = await chrome.storage.sync.get("options");

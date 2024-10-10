@@ -12,3 +12,7 @@ h2
 {
     margin:0;
 }
+div.otherlanguages {
+    max-height:140px;
+    overflow-y:scroll;
+}
