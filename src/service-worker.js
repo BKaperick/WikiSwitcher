@@ -22,16 +22,4 @@ function DOMtoString(selector) {
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
         const activeTab = chrome.tabs.query({ currentWindow: true, active: true });
         var activeTabId = activeTab.id;
-        //           return chrome.scripting.executeScript({
-        //               target: { tabId: activeTabId },
-        //               injectImmediately: true,  uncomment this to make it execute straight away, other wise it will wait for document_idle
-        //               func: DOMtoString,
-        //               args: ['body']  you can use this to target what element to get the html for
-        //           });
-        //       }).then(function (results) {
-        //           message.innerText = results[0].result;
-        //       }).catch(function (error) {
-        //           message.innerText = 'There was an error injecting script : \n' + error.message;
-        //       });
-        // }
 });

@@ -5,16 +5,10 @@
   "description": "Chooses the Wikipedia page which has the best article among the users' selected languages",
   "author": "bryan.kaperick@gmail.com",
   "permissions": [
-    "webRequest",
-    "declarativeNetRequest",
-    "declarativeNetRequestWithHostAccess",
-    "scripting",
-    "activeTab",
     "storage"
   ],
-  "host_permissions": ["*://*/*", "file://*/*"],
   "action": {
-    "default_title": "Click to view a popup",
+    "default_title": "WikiSwitcher",
     "default_popup": "popup.html"
   },
   "background": {
