@@ -1,7 +1,13 @@
 html
 {
-    width: 700px;  /* max: 800px */
+    width: 300px;  /* max: 800px */
     height: 500px; /* max: 600px */
+}
+img.popup
+{
+    padding: 2px;
+    width: 30px;  /* max: 800px */
+    height: 30px; /* max: 600px */
 }
 
 h4

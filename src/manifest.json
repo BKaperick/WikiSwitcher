@@ -1,8 +1,14 @@
 {
   "manifest_version": 3,
   "name": "WikiSwitcher",
-  "version": "1.0.0",
-  "description": "Chooses the Wikipedia page which has the best article among the users' selected languages",
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "version": "0.0.1",
+  "description": "Prompt the user if there exists a better version of the current wikipedia article in one of the user's selected languages",
   "author": "bryan.kaperick@gmail.com",
   "permissions": [
     "storage"
