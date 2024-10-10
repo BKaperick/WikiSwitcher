@@ -52,8 +52,10 @@ function getLanguageRedirect(languages) {
                 }
             }
         }
-    lang_to_url[base_url_language] = document.URL;
-    lang_to_title[base_url_language] = title;
+    if (languages.includes(base_url_language)) {
+        lang_to_url[base_url_language] = document.URL;
+        lang_to_title[base_url_language] = title;
+    }
     for (const lang in lang_to_url) { 
         var lang_title = lang_to_title[lang];
         var wiki_api_raw_text = "https://" + lang + ".wikipedia.org/w/api.php?origin=*&page=" + lang_title + "&prop=wikitext&action=parse"
