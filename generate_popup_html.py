@@ -19,7 +19,6 @@ r'>([A-zÀ-ÿ]{2,}[-–][A-zÀ-ÿ]{2,})<'
 re_user_count = [
 r'>([\d,]+)<'
 ]
-#a-zA-Z\u00C0-\u024F\u1E00-\u1EFF
 
 POPULAR_LANGUAGE_THRESHOLD = 10
 
@@ -29,8 +28,6 @@ with open(sys.argv[1], "r") as fr:
     rows = data.split("</tr><tr ")
     for row in rows:
         cells = row.split("</td><td ")
-        #for i,c in enumerate(cells):
-        #    print(i,c)
         for re_url in re_urls:
             lang = re.search(re_url, cells[3])
             if lang:
@@ -46,17 +43,7 @@ with open(sys.argv[1], "r") as fr:
 
         if (not lang) or (not name) or (not user_count):
             print("Failed to parse: " + row)
-            print(cells[3])
-            print(lang)
-            print(cells[1])
-            print(name)
-            print(cells[5])
-            print(user_count)
-            #print(row)
         else:
-            #pass
-            #print(lang.group(1))
-            #print(name.group(1))
             langs.append({'name': name.group(1), 'url': lang.group(1), 'count': int(user_count.group(1).replace(",",""))})
 
 def popular_adj_sort(langs, top_pop):
@@ -72,7 +59,7 @@ def popular_adj_sort(langs, top_pop):
 
 langs = popular_adj_sort(langs, POPULAR_LANGUAGE_THRESHOLD)
 
-with open("popup_header.html","r") as f:
+with open("data/popup_header.html","r") as f:
     header = f.read()
     output = header
     output_translated = header
@@ -91,7 +78,7 @@ for i,lang in enumerate(langs):
         output += list_separator
         output_translated += list_separator
 
-with open("popup_footer.html","r") as f:
+with open("data/popup_footer.html","r") as f:
     footer = f.read()
     output += footer
     output_translated += footer

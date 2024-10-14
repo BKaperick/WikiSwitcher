@@ -41,7 +41,7 @@ class TableParser(HTMLParser):
 
 def get_language_translation_dict(lang_dict = None):
     if lang_dict == None:
-        with open("language_to_language-name.html", "r") as fr:
+        with open("data/language_to_language-name.html", "r") as fr:
             data = fr.read()
             parser = TableParser()
             parser.feed(data)
