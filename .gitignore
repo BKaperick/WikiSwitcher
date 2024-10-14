@@ -1,3 +1,4 @@
 /data/raw/*
 /*.pem
 *.zip
+__pycache__

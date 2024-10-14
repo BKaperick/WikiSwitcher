@@ -54,4 +54,5 @@ def translate_language(lang):
     lang_cleaned = lang.strip()
     if lang_cleaned in language_dict:
         return language_dict[lang_cleaned]
+    print("Language not found in list: " + lang)
     return lang_cleaned

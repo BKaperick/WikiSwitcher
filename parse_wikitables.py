@@ -73,20 +73,30 @@ def popular_adj_sort(langs, top_pop):
 langs = popular_adj_sort(langs, POPULAR_LANGUAGE_THRESHOLD)
 
 with open("popup_header.html","r") as f:
-    output = f.read()
+    header = f.read()
+    output = header
+    output_translated = header
 
-for i,lang in enumerate(langs):
-    translated = translate_language(lang['name'])
-    output += """<input type="checkbox" id="{0}" name="{2}" value="{0}"><label for="{0}">{1}</label><br>\n""".format(lang['url'], translated, lang['name'].lower())
-    if i == POPULAR_LANGUAGE_THRESHOLD - 1:
-        output += """<br>
+list_separator = """<br>
 
 <h4>All other Wikipedia languages</h4>
 <div class="otherlanguages" >
 """
 
+for i,lang in enumerate(langs):
+    translated = translate_language(lang['name'])
+    output_translated += """<input type="checkbox" id="{0}" name="{2}" value="{0}"><label for="{0}">{1}</label><br>\n""".format(lang['url'], translated, lang['name'].lower())
+    output += """<input type="checkbox" id="{0}" name="{2}" value="{0}"><label for="{0}">{1}</label><br>\n""".format(lang['url'], lang['name'], lang['name'].lower())
+    if i == POPULAR_LANGUAGE_THRESHOLD - 1:
+        output += list_separator
+        output_translated += list_separator
+
 with open("popup_footer.html","r") as f:
-    output += f.read()
+    footer = f.read()
+    output += footer
+    output_translated += footer
 
 with open ("src/popup.html", "w") as f:
     f.write(output)
+with open ("src/popup_translated.html", "w") as f:
+    f.write(output_translated)
