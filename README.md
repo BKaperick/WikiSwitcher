@@ -4,7 +4,8 @@ This chrome extension intends to facilitate the user-experience of [Wikipedia](h
 
 # In Chrome Store
 
-The v 0.0.1 of this app is still pending approval from the Google Chrome store.  The link will be added here when it is published.
+~The v 0.0.1 of this app is still pending approval from the Google Chrome store.  The link will be added here when it is published.~
+Link to download is here: https://chromewebstore.google.com/detail/wikiswitcher/hpcjbdockpdedhmceilapegnafhldojo
 
 Alternatively, you can install locally by:
 1. Clone this repository (or download and unzip `src.crx`)
