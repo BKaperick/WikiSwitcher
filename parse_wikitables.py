@@ -1,5 +1,6 @@
 import re
 import sys
+from parse_languages import translate_language
 
 re_urls = [
 r'<span lang=\"([a-z]{2,3})\">',
@@ -75,7 +76,8 @@ with open("popup_header.html","r") as f:
     output = f.read()
 
 for i,lang in enumerate(langs):
-    output += """<input type="checkbox" id="{0}" name="{2}" value="{0}"><label for="{0}">{1}</label><br>\n""".format(lang['url'], lang['name'], lang['name'].lower())
+    translated = translate_language(lang['name'])
+    output += """<input type="checkbox" id="{0}" name="{2}" value="{0}"><label for="{0}">{1}</label><br>\n""".format(lang['url'], translated, lang['name'].lower())
     if i == POPULAR_LANGUAGE_THRESHOLD - 1:
         output += """<br>
 
@@ -86,4 +88,5 @@ for i,lang in enumerate(langs):
 with open("popup_footer.html","r") as f:
     output += f.read()
 
-print(output)
+with open ("src/popup.html", "w") as f:
+    f.write(output)
